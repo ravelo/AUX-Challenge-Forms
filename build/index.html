@@ -6,6 +6,8 @@
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 
+	<link rel="stylesheet" href="assets/css/styles.css">
+
 	<meta charset="UTF-8">
 	<meta http-equiv="cleartype" content="on">
 
@@ -15,7 +17,7 @@
 
 	<header id="banner" class="banner" role="banner">
 		<h1>Sign up for Whoo!</h1>
-		<h2>50 projects, 500 images, 10 videos, domain binding, and technical support</h2>
+		<legend>50 projects, 500 images, 10 videos, domain binding, and technical support</legend>
 	</header>
 
 	<section id="main" role="main">
@@ -24,30 +26,100 @@
 
 		<form id="form-signup" method="" action="">
 
-			<div>
-				<h2><span>1</span> First, name your portfolio</h2>
+			<fieldset>
+				<legend>First, name your portfolio</legend>
 
-				<label>Portfolio name</label>
-				<input type="text" name="portfolio-name" required />
+				<label for="portfolio-name">Portfolio name</label>
+				<input type="text" id="portfolio-name" name="portfolio-name" required aria-required="true">
 
-				<label>Portfolio address</label>
-				<input type="text" name="portfolio-address" required />
+				<label for="portfolio-address">Portfolio address</label>
+				<input type="text" id="portfolio-address" name="portfolio-address" required aria-required="true">
 				<p>.sample.com</p>
-			</div>
+			</fieldset>
 
-			<div>
-				<h2><span>2</span> Now, enter your account details</h2>
+			<fieldset>
+				<legend>Now, enter your account details</legend>
 
-				<label>Name</label>
-				<input type="text" name="acct-name" required />
+				<label for="aact-name">Name</label>
+				<input type="text" id="acct-name" name="name" required aria-required="true">
 
-				<label>Email</label>
-				<input type="email" name="acct-email" required />
+				<label for="aact-email">Email</label>
+				<input type="email" id="acct-email" name="email" placeholder="you@somewhere.com" required aria-required="true">
 				<p>NOTE: We'll never share your email, promise.</p>
 
-				<label>Password</label>
-				<input type="text" name="acct-pw" required />
-			</div>
+				<label for="aact-pw">Password</label>
+				<input type="text" id="acct-pw" name="pw" required>
+			</fieldset>
+
+			<fieldset>
+				<legend>Finally, enter your payment information</legend>
+
+				<label for="cc-number">Card Number</label>
+				<input type="text" id="cc-number" name="card-number" pattern="[0-9]" maxlength="16" required aria-required="true">
+
+				<fieldset>
+					<legend class="visiblyhidden">Card type</legend>
+					
+					<input id="amex" name="cardtype" type="radio" required aria-required="true">
+					<label for="amex">AmEx</label>
+					<input id="visa" name="cardtype" type="radio" required aria-required="true">
+					<label for="visa">VISA</label>
+					<input id="discover" name="cardtype" type="radio" required aria-required="true">
+					<label for="discover">Discover</label>
+					<input id="mastercard" name="cardtype" type="radio" required aria-required="true">
+					<label for="mastercard">Mastercard</label>
+						
+				</fieldset><!--/cardtype-->
+
+				<label for="cc-code">Security Code</label>
+				<input type="text" id="cc-code" name="cc-code" maxlength="4" required aria-required="true">
+				<p>Security card image here</p>
+
+				<fieldset>
+					<legend>Expiration date</legend>
+
+					<label for="cc-exp-month" class="visiblyhidden">Expiration month</label>
+					<select id="cc-exp-month" name="exp-month" required aria-required="true">
+						<option value="">Month</option>
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>                
+	                </select>
+
+	                <label for="cc-exp-year" class="visiblyhidden">Expiration year</label>
+					<select id="cc-exp-year" name="exp-year" required aria-required="true">
+						<option value="">Year</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+						<option value="2024">2024</option>
+						<option value="2025">2025</option>
+						<option value="2026">2026</option>
+						<option value="2027">2027</option>
+						<option value="2028">2028</option>
+						<option value="2029">2029</option>
+						<option value="2030">2030</option>
+					</select>
+					</fieldset><!--/expiration-->
+
+			</fieldset>
+
+			<input type="submit" name="form-submit" value="Create your portfolio" class="">
 
 
 

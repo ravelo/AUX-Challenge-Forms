@@ -1,1 +1,43 @@
-/* Your CSS goes here */
+input:focus:required:invalid {
+  background: pink;
+}
+
+form label {
+	width: 100%;
+	display: block;
+}
+
+
+body {
+  counter-reset: fieldset;
+}
+
+form > fieldset > legend {
+	counter-increment: fieldset;
+}
+
+form > fieldset > legend:before {
+    content: counter(fieldset) " ";
+    color: pink;
+    position: absolute;
+    left: 0;
+}
+
+fieldset{ position: relative;}
+
+
+.container {
+	width: 600px;
+	margin: auto;
+}
+
+
+
+.visiblyhidden {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
