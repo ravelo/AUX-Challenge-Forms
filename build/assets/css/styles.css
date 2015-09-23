@@ -1,15 +1,177 @@
-input:focus:required:invalid {
-  background: pink;
+
+/* ----------------- TEMPORY REFERENCE STUFF
+--*/
+
+.light-gray { background: #F3F5F5;}
+.bright-blue { background: #B3E3FF;}
+.med-blue { background: #52A3D4;} /* legend numbers */
+.turquoise { background: #0A5E78;}
+
+.text-primary { color: #444444;} /* input, label */
+.text-light { color: #888888;} /* captions */
+
+.margin-horiz { margin: 40px;}
+.margin-vert { margin: 20px;}
+.container { width: 600px;}
+
+.form-input { height: 33px;}
+
+.open-sans /* bold, semibold, regular */ {}
+.merriweather /* bold */ {}
+
+.sprite {
+    background-size: contain;
+    background-repeat:no-repeat;
+    background: url('../images/sprite2.png');
+    display: block;
 }
 
-form label {
-	width: 100%;
-	display: block;
+.form-invalid {
+    background-position: -140px -82px;
+    width: 19px;
+    height: 19px;
 }
 
+.form-valid {
+    background-position: -169px -82px;
+    width: 19px;
+    height: 19px;
+}
+
+.cc-security {
+    background-position: 0px -81px;
+    width:63px;
+    height:33px;  
+
+}
+
+
+
+/* ----------------- CSS HERE (delete above eventually)
+--*/
 
 body {
   counter-reset: fieldset;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+}
+
+
+.visiblyhidden {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+
+/* ----------------- FORM – General (input, labels)
+--*/
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+    width: 100%;
+    padding: 0 10px;
+    height: 33px;
+    background: transparent;    
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    background: white;
+}
+
+form label {
+    width: 100%;
+    display: block;
+}
+
+.form-group {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 40px;
+    width: 100%;
+    list-style-type: none;
+    background: #F3F5F5;
+}
+
+.form-group li {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.form-group li label:first-child {
+    height: 20px;
+    width: 100%;
+    display: inline-block;
+}
+
+.validation-icon {
+    position: absolute;
+    top: 27px;
+    right: 8px;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background: url('../images/sprite2.png');
+    display: block;
+    background-position: -110px -82px;
+    width: 20px;
+    height: 20px;
+    z-index: -1;
+} 
+
+/*
+
+.validation-icon {
+    position: absolute;
+    top: 10px;
+    right: 2px;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background: url('../images/sprite2.png');
+    display: block;
+    background-position: -110px -82px;
+    width: 20px;
+    height: 20px;
+    z-index: -1;
+} */
+
+input:focus {
+}
+
+input:focus:required + .validation-icon {
+    z-index: 2;
+}
+
+input:focus:required:valid ~ .validation-icon {
+    background-position: -169px -82px;
+}
+
+input:focus:required:invalid ~ .validation-icon {
+    background-position: -140px -82px;
+}
+
+
+
+
+/* ----------------- FORM – Fieldsets (headers, background)
+--*/
+
+
+fieldset { 
+    position: relative; 
+    /*margin: 0;
+    padding: 0;
+    border: none; */
 }
 
 form > fieldset > legend {
@@ -23,20 +185,54 @@ form > fieldset > legend:before {
     left: 0;
 }
 
-fieldset{ position: relative;}
 
 
-.container {
-	width: 600px;
-	margin: auto;
+
+/* ----------------- FORM – Card Selector (radio sprite!)
+--*/
+
+.cc-type-selector input {
+    margin:0;
+    padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-type {
+	cursor:pointer;
+	display: inline-block;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background: url('../images/sprite2.png');
+    width:45px;
+    height:32px;  
 }
 
 
-.visiblyhidden {
-	position:absolute;
-	left:-10000px;
-	top:auto;
-	width:1px;
-	height:1px;
-	overflow:hidden;
-}
+.amex { background-position: 0 -42px; }
+.visa { background-position: -48px -42px; }
+.discover { background-position: -96px -42px; }
+.mastercard { background-position: -144px -42px; }
+
+#amex:checked + .cc-type,
+.amex:hover { background-position: 0 0; }
+
+#visa:checked + .cc-type,
+.visa:hover { background-position: -48px 0; }
+
+#discover:checked + .cc-type,
+.discover:hover { background-position: -96px 0; }
+
+#mastercard:checked + .cc-type,
+.mastercard:hover { background-position: -144px 0; }
+
+
+
+
+
+
+
+
+
+

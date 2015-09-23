@@ -15,7 +15,7 @@
 <body>
 <div class="container">
 
-	<header id="banner" class="banner" role="banner">
+	<header id="banner" class="banner">
 		<h1>Sign up for Whoo!</h1>
 		<h2>50 projects, 500 images, 10 videos, domain binding, and technical support</h2>
 	</header>
@@ -24,106 +24,270 @@
 
 		<h1 class="visiblyHidden">Whoo! Sign Up Form</h1>
 
-		<form id="form-signup" method="" action="">
+		<form id="form-signup" method="post" action="">
 
 			<fieldset>
-				<legend>First, name your portfolio</legend>
+				<legend id="form-portfolio">First, name your portfolio</legend>
 
-				<label for="portfolio-name">Portfolio name</label>
-				<input type="text" id="portfolio-name" name="portfolio-name" required aria-required="true">
+				<!-- Fieldset > UL or OL -->
+				<ul class="form-group">
+					<li>
+						<label for="portfolio-name">Portfolio name</label>
+						<input type="text" id="portfolio-name" name="portfolio-name" required>
+						<div class="validation-icon"></div>
+					</li>
+					<li>
+						<label for="portfolio-address">Portfolio address</label>
+						<input type="text" id="portfolio-address" name="portfolio-address" required>
+						<div class="validation-icon"></div>
+						<label for="portfolio-address" class="caption"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
+					</li>
+				</ul> 
 
-				<label for="portfolio-address">Portfolio address</label>
-				<input type="text" id="portfolio-address" name="portfolio-address" required aria-required="true">
-				<p>.sample.com</p>
+				<!-- (Alt structure) Fieldset > DIV 
+
+				<div class="form-group">
+
+					<label>
+						<span>Portfolio name</span>
+						<input type="text" name="portfolio-name" required>
+						<div class="form-validation"></div>
+					</label>
+
+
+					<label>
+						<span>Portfolio address</span>
+						<input type="text" name="portfolio-address" required>
+						<div class="form-validation"></div>
+						<span class="caption>"><span class="visiblyhidden">your-portfolio</span>.sample.com</span>
+					</label>
+
+				</div>
+
+
+				<div class="form-group">
+
+					<label for="portfolio-name">Portfolio name</label>
+					<div class="form-input-wrapper">
+						<input type="text" id="portfolio-name" name="portfolio-name" required>
+						<div class="form-validation"></div>
+					</div>
+
+					<label for="portfolio-address">Portfolio address</label>
+					<input type="text" id="portfolio-address" name="portfolio-address" required>
+					<label for="portfolio-address"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
+
+				</div> --> 
+				<!--/.form-group-->
 			</fieldset>
 
 			<fieldset>
-				<legend>Now, enter your account details</legend>
+				<legend id="form-acct">Now, enter your account details</legend>
+				
+				<ul class="form-group">
+					<li>
+						<label for="acct-name">Name</label>
+						<input type="text" id="acct-name" name="name" required>
+						<div class="validation-icon"></div>
+					</li>
+					<li>
+						<label for="acct-email">Email</label>
+						<input type="email" id="acct-email" name="email" placeholder="you@somewhere.com" required>
+						<div class="validation-icon"></div>
+						<label class="form-caption" for="acct-email">NOTE: We'll never share your email, promise.</label>
+					</li>
+					<li>
+						<label for="acct-pw">Password</label>
+						<input type="password" id="acct-pw" name="pw" required>
+						<div class="validation-icon"></div>
+					</li>
+				</ul>
 
-				<label for="acct-name">Name</label>
-				<input type="text" id="acct-name" name="name" required aria-required="true">
+				<!-- (Alt structure) FIELDSET > div 
+				<div class="form-group">
 
-				<label for="acct-email">Email</label>
-				<input type="email" id="acct-email" name="email" placeholder="you@somewhere.com" required aria-required="true">
-				<p>NOTE: We'll never share your email, promise.</p>
+					<label for="acct-name">Name</label>
+					<input type="text" id="acct-name" name="name" required>
 
-				<label for="acct-pw">Password</label>
-				<input type="text" id="acct-pw" name="pw" required>
+					<label for="acct-email">Email</label>
+					<input type="email" id="acct-email" name="email" placeholder="you@somewhere.com" required>
+					<p>NOTE: We'll never share your email, promise.</p>
+
+					<label for="acct-pw">Password</label>
+					<input type="text" id="acct-pw" name="pw" required>
+
+				</div> -->
+				<!--/.form-group-->
 			</fieldset>
 
 			<fieldset>
-				<legend>Finally, enter your payment information</legend>
+				<legend id="form-payment">Finally, enter your payment information</legend>
+				
+				<ul class="form-group">
+					<li>
+						<label for="cc-number">Card Number</label>
+						<input type="text" id="cc-number" name="card-number" pattern="[0-9]16" maxlength="16" required>
+						<div class="validation-icon"></div>
+					</li>
+					<li>
+						<fieldset class="cc-type-selector">
+							<legend class="visiblyhidden">Card Type</legend>
+							
+							<input id="amex" name="cardtype" type="radio" required>
+							<label for="amex" class="cc-type amex">
+								<span class="visiblyhidden">AmEx</span>
+							</label>
 
-				<label for="cc-number">Card Number</label>
-				<input type="text" id="cc-number" name="card-number" pattern="[0-9]" maxlength="16" required aria-required="true">
+							<input id="visa" name="cardtype" type="radio" required>
+							<label for="visa" class="cc-type visa">
+								<span class="visiblyhidden">VISA</span>
+							</label>
 
-				<fieldset>
-					<legend class="visiblyhidden">Card type</legend>
-					
-					<input id="amex" name="cardtype" type="radio" required aria-required="true">
-					<label for="amex">AmEx</label>
+							<input id="discover" name="cardtype" type="radio" required>
+							<label for="discover" class="cc-type discover">
+								<span class="visiblyhidden">Discover</span>
+							</label>
 
-					<input id="visa" name="cardtype" type="radio" required aria-required="true">
-					<label for="visa">VISA</label>
+							<input id="mastercard" name="cardtype" type="radio" required>
+							<label for="mastercard" class="cc-type mastercard">
+								<span class="visiblyhidden">Mastercard</span>
+							</label>		
+						</fieldset>
+					</li>
+					<li>
+						<label for="cc-code">Security Code</label>
+						<input type="text" id="cc-code" name="cc-code" maxlength="4" required>
+						<div class="validation-icon"></div>
+						<p>Security card image here</p>
+					</li>
+					<li>
+						<fieldset>
+							<legend>Expiration date</legend>
 
-					<input id="discover" name="cardtype" type="radio" required aria-required="true">
-					<label for="discover">Discover</label>
+							<label for="cc-exp-month" class="visiblyhidden">Expiration month</label>
+							<select id="cc-exp-month" name="exp-month" required>
+								<option value="">Month</option>
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>                
+			                </select>
 
-					<input id="mastercard" name="cardtype" type="radio" required aria-required="true">
-					<label for="mastercard">Mastercard</label>
+			                <label for="cc-exp-year" class="visiblyhidden">Expiration year</label>
+							<select id="cc-exp-year" name="exp-year" required>
+								<option value="">Year</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+								<option value="2026">2026</option>
+								<option value="2027">2027</option>
+								<option value="2028">2028</option>
+								<option value="2029">2029</option>
+								<option value="2030">2030</option>
+							</select>
+						</fieldset>
+					</li>
+
+				</ul>
+
+				<!-- (Alt structure) FIELDSET > div 
+				<div class="form-group">
+
+					<label for="cc-number">Card Number</label>
+					<input type="text" id="cc-number" name="card-number" pattern="[0-9]16" maxlength="16" required>
+
+					<fieldset class="cc-type-selector">
+						<legend class="visiblyhidden">Card Type</legend>
 						
-				</fieldset><!--/cardtype-->
+						<input id="amex" name="cardtype" type="radio" required>
+						<label for="amex" class="cc-type amex">
+							<span class="visiblyhidden">AmEx</span>
+						</label>
 
-				<label for="cc-code">Security Code</label>
-				<input type="text" id="cc-code" name="cc-code" maxlength="4" required aria-required="true">
-				<p>Security card image here</p>
+						<input id="visa" name="cardtype" type="radio" required>
+						<label for="visa" class="cc-type visa">
+							<span class="visiblyhidden">VISA</span>
+						</label>
 
-				<fieldset>
-					<legend>Expiration date</legend>
+						<input id="discover" name="cardtype" type="radio" required>
+						<label for="discover" class="cc-type discover">
+							<span class="visiblyhidden">Discover</span>
+						</label>
 
-					<label for="cc-exp-month" class="visiblyhidden">Expiration month</label>
-					<select id="cc-exp-month" name="exp-month" required aria-required="true">
-						<option value="">Month</option>
-						<option value="1">January</option>
-						<option value="2">February</option>
-						<option value="3">March</option>
-						<option value="4">April</option>
-						<option value="5">May</option>
-						<option value="6">June</option>
-						<option value="7">July</option>
-						<option value="8">August</option>
-						<option value="9">September</option>
-						<option value="10">October</option>
-						<option value="11">November</option>
-						<option value="12">December</option>                
-	                </select>
+						<input id="mastercard" name="cardtype" type="radio" required>
+						<label for="mastercard" class="cc-type mastercard">
+							<span class="visiblyhidden">Mastercard</span>
+						</label>		
+					</fieldset>
 
-	                <label for="cc-exp-year" class="visiblyhidden">Expiration year</label>
-					<select id="cc-exp-year" name="exp-year" required aria-required="true">
-						<option value="">Year</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-						<option value="2018">2018</option>
-						<option value="2019">2019</option>
-						<option value="2020">2020</option>
-						<option value="2021">2021</option>
-						<option value="2022">2022</option>
-						<option value="2023">2023</option>
-						<option value="2024">2024</option>
-						<option value="2025">2025</option>
-						<option value="2026">2026</option>
-						<option value="2027">2027</option>
-						<option value="2028">2028</option>
-						<option value="2029">2029</option>
-						<option value="2030">2030</option>
-					</select>
-					</fieldset><!--/expiration-->
+					<label for="cc-code">Security Code</label>
+					<input type="text" id="cc-code" name="cc-code" maxlength="4" required>
+					<p>Security card image here</p>
+
+					<fieldset>
+						<legend>Expiration date</legend>
+
+						<label for="cc-exp-month" class="visiblyhidden">Expiration month</label>
+						<select id="cc-exp-month" name="exp-month" required>
+							<option value="">Month</option>
+							<option value="1">January</option>
+							<option value="2">February</option>
+							<option value="3">March</option>
+							<option value="4">April</option>
+							<option value="5">May</option>
+							<option value="6">June</option>
+							<option value="7">July</option>
+							<option value="8">August</option>
+							<option value="9">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>                
+		                </select>
+
+		                <label for="cc-exp-year" class="visiblyhidden">Expiration year</label>
+						<select id="cc-exp-year" name="exp-year" required>
+							<option value="">Year</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+							<option value="2026">2026</option>
+							<option value="2027">2027</option>
+							<option value="2028">2028</option>
+							<option value="2029">2029</option>
+							<option value="2030">2030</option>
+						</select>
+					</fieldset>
+
+				</div> -->
+				<!--/.form-group-->
 
 			</fieldset>
 
-			<input type="submit" name="form-submit" value="Create your portfolio" class="">
-
+			<button>Create your portfolio</button>
 
 
 		</form><!--/#form-signup-->
