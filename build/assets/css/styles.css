@@ -1,5 +1,44 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-/* ----------------- TEMPORY REFERENCE STUFF
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+
+*  { margin:0;padding:0;}
+
+
+/* ----------------- TEMPORY REFERENCE STUFF (delete!!!!)
 --*/
 
 .light-gray { background: #F3F5F5;}
@@ -52,11 +91,18 @@
 
 body {
   counter-reset: fieldset;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background:#B3E3FF;
+  color:#444444;
+  padding: 10px 0;
 }
 
 .container {
     width: 600px;
     margin: auto;
+    background:white;
+    border-radius: 9px;
 }
 
 
@@ -70,93 +116,120 @@ body {
 }
 
 
+/* ----------------- HEADER  + TYPOGRAPHY
+--*/
+
+header {
+    background: #0A5E78;
+    border-radius: 9px 9px 0 0;
+    padding: 25px 40px;
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    color:white;
+    font-size:36px;
+    line-height: 1.4;
+}
+
+header h2 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #B3E3FF;
+}
+
+form > fieldset > legend {
+    font-family: 'Merriweather', serif;
+    color: #0A5E78;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+li > fieldset > legend, 
+label {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+label.caption { 
+    font-size: 11px;
+    color: #888888;
+    font-weight: 600;
+    line-height: 2;
+}
+
+
+
 /* ----------------- FORM – General (input, labels)
 --*/
+
 
 input[type='text'],
 input[type='email'],
 input[type='password'] {
     width: 100%;
     padding: 0 10px;
-    height: 33px;
-    background: transparent;    
+    height: 34px;
+    background: transparent;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
     background: white;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: inset 0px 1px 1px 1px rgba(214,214,214,1);
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: inherit;
 }
 
-form label {
-    width: 100%;
-    display: block;
+input:focus {
 }
+
 
 .form-group {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0 40px;
-    width: 100%;
-    list-style-type: none;
+    margin-top: 10px;
+    padding: 25px 40px;
     background: #F3F5F5;
+    border-radius: 8px;
 }
 
 .form-group li {
-    margin: 0;
     margin-bottom: 20px;
-    padding: 0;
     display: block;
     position: relative;
-    width: 100%;
 }
 
 .form-group li label:first-child {
     height: 20px;
-    width: 100%;
     display: inline-block;
 }
 
-.validation-icon {
+.icon-form-validation {
     position: absolute;
-    top: 27px;
+    top: 31px;
     right: 8px;
     background-size: contain;
     background-repeat:no-repeat;
     background: url('../images/sprite2.png');
-    display: block;
     background-position: -110px -82px;
     width: 20px;
     height: 20px;
     z-index: -1;
 } 
 
-/*
 
-.validation-icon {
-    position: absolute;
-    top: 10px;
-    right: 2px;
-    background-size: contain;
-    background-repeat:no-repeat;
-    background: url('../images/sprite2.png');
-    display: block;
-    background-position: -110px -82px;
-    width: 20px;
-    height: 20px;
-    z-index: -1;
-} */
-
-input:focus {
-}
-
-input:focus:required + .validation-icon {
+input:focus:required ~ .icon-form-validation {
     z-index: 2;
 }
 
-input:focus:required:valid ~ .validation-icon {
+input:focus:required:valid ~ .icon-form-validation {
     background-position: -169px -82px;
 }
 
-input:focus:required:invalid ~ .validation-icon {
+input:focus:required:invalid ~ .icon-form-validation {
     background-position: -140px -82px;
 }
 
@@ -169,20 +242,31 @@ input:focus:required:invalid ~ .validation-icon {
 
 fieldset { 
     position: relative; 
-    /*margin: 0;
-    padding: 0;
-    border: none; */
+    margin: 30px 0;
+    padding: 0 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 form > fieldset > legend {
 	counter-increment: fieldset;
 }
 
-form > fieldset > legend:before {
+form > fieldset > legend::before {
     content: counter(fieldset) " ";
-    color: pink;
+    color: white;
     position: absolute;
-    left: 0;
+    left: -15px;
+    top: -11px;
+    height: 40px;
+    width: 40px;
+    background: #52A3D4;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 6px;
+    box-sizing: border-box;
+    display: block;
+    border: 5px white solid;
 }
 
 
@@ -191,13 +275,6 @@ form > fieldset > legend:before {
 /* ----------------- FORM – Card Selector (radio sprite!)
 --*/
 
-.cc-type-selector input {
-    margin:0;
-    padding:0;
-    -webkit-appearance:none;
-       -moz-appearance:none;
-            appearance:none;
-}
 
 .cc-type {
 	cursor:pointer;
