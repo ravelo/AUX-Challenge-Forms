@@ -30,45 +30,26 @@
 
 		<form id="form-signup">
 
-		<!-- * * * Add form action/method? * * * -->
-
 			<fieldset>
 				<legend>First, name your portfolio</legend>
 
 				<ul class="form-group">
 					<li>
 						<label for="portfolio-name">Portfolio name</label>
-						<input type="text" id="portfolio-name" name="portfolio-name" aria-required="true">
+						<input type="text" id="portfolio-name" name="portfolio-name" aria-required="true" aria-required="true" required>
 
 						<!-- * * * Insert icon with js instead? * * * -->
 						<div class="icon-form-validation"></div>
 						
-
 					</li>
 					<li class="portfolio-address-control">
 						<label for="portfolio-address">Portfolio address</label>
-						<input type="text" id="portfolio-address" name="portfolio-address" required>
+						<input type="text" id="portfolio-address" name="portfolio-address" aria-required="true" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 						<label for="portfolio-address" class="caption"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
 					</li>
 				</ul> 
 
-				<!-- (Alt structure) Fieldset > DIV 
-
-				<div class="form-group">
-
-					<label for="portfolio-name">Portfolio name</label>
-					<div class="form-input-wrapper">
-						<input type="text" id="portfolio-name" name="portfolio-name" required>
-						<div class="form-validation"></div>
-					</div>
-
-					<label for="portfolio-address">Portfolio address</label>
-					<input type="text" id="portfolio-address" name="portfolio-address" required>
-					<label for="portfolio-address"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
-
-				</div> --> 
-				<!--/.form-group-->
 			</fieldset>
 
 			<fieldset>
@@ -77,18 +58,18 @@
 				<ul class="form-group">
 					<li>
 						<label for="acct-name">Name</label>
-						<input type="text" id="acct-name" name="name" required>
+						<input type="text" id="acct-name" name="name" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 					</li>
 					<li>
 						<label for="acct-email">Email</label>
-						<input type="email" id="acct-email" name="email" required>
+						<input type="email" id="acct-email" name="email" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 						<label class="caption" for="acct-email">NOTE: We'll never share your email, promise.</label>
 					</li>
 					<li>
 						<label for="acct-pw">Password</label>
-						<input type="password" id="acct-pw" name="pw" required>
+						<input type="password" id="acct-pw" name="pw" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 					</li>
 				</ul>
@@ -100,29 +81,29 @@
 				<ul class="form-group">
 					<li class="cc-number-control">
 						<label for="cc-number">Card Number</label>
-						<input type="text" id="cc-number" name="card-number" pattern="[0-9]16" maxlength="16" required>
+						<input type="text" id="cc-number" name="card-number" pattern="[0-9]16" maxlength="16" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 					</li>
 					<li class="cc-type-control">
 						<fieldset>
 							<legend class="visiblyhidden">Card Type</legend>
 							
-							<input id="amex" name="cardtype" type="radio" class="visiblyhidden" required>
+							<input id="amex" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="amex" class="cc-type amex">
 								<span class="visiblyhidden">AmEx</span>
 							</label>
 
-							<input id="visa" name="cardtype" type="radio" class="visiblyhidden" required>
+							<input id="visa" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="visa" class="cc-type visa">
 								<span class="visiblyhidden">VISA</span>
 							</label>
 
-							<input id="discover" name="cardtype" type="radio" class="visiblyhidden" required>
+							<input id="discover" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="discover" class="cc-type discover">
 								<span class="visiblyhidden">Discover</span>
 							</label>
 
-							<input id="mastercard" name="cardtype" type="radio" class="visiblyhidden" required>
+							<input id="mastercard" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="mastercard" class="cc-type mastercard">
 								<span class="visiblyhidden">Mastercard</span>
 							</label>		
@@ -130,7 +111,7 @@
 					</li>
 					<li class="cc-code-control">
 						<label for="cc-code">Security Code</label>
-						<input type="text" id="cc-code" name="cc-code" maxlength="4" required>
+						<input type="text" id="cc-code" name="cc-code" maxlength="4" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 						<label for="cc-code" class="cc-code-sprite">
 							<span class="visiblyhidden">The security code is usually 3 to 4 digits and typically found on the back of your credit card.</span>
@@ -141,8 +122,8 @@
 							<legend>Expiration date</legend>
 
 							<label for="cc-exp-month" class="visiblyhidden">Expiration month</label>
-							<select id="cc-exp-month" name="exp-month" required>
-								<option value="">Month</option>
+							<select id="cc-exp-month" name="exp-month" aria-required="true" required>
+								<option value="" disabled selected>Month</option>
 								<option value="1">January</option>
 								<option value="2">February</option>
 								<option value="3">March</option>
@@ -158,8 +139,8 @@
 			                </select>
 
 			                <label for="cc-exp-year" class="visiblyhidden">Expiration year</label>
-							<select id="cc-exp-year" name="exp-year" required>
-								<option value="">Year</option>
+							<select id="cc-exp-year" name="exp-year" aria-required="true" required>
+								<option value="" disabled selected>Year</option>
 								<option value="2015">2015</option>
 								<option value="2016">2016</option>
 								<option value="2017">2017</option>
@@ -184,7 +165,6 @@
 			</fieldset>
 
 			<button>Create your portfolio</button>
-
 
 		</form><!--/#form-signup-->
 
