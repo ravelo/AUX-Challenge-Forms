@@ -81,12 +81,14 @@
 				<ul class="form-group">
 					<li class="cc-number-control">
 						<label for="cc-number">Card Number</label>
-						<input type="text" id="cc-number" name="card-number" pattern="[0-9]16" maxlength="16" aria-required="true" required>
+						<input type="text" id="cc-number" name="card-number" maxlength="16" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 					</li>
 					<li class="cc-type-control">
 						<fieldset>
 							<legend class="visiblyhidden">Card Type</legend>
+
+							<!-- * * * Why doesn't aria-required validate??? * * * -->
 							
 							<input id="amex" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="amex" class="cc-type amex">

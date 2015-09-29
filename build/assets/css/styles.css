@@ -1,3 +1,34 @@
+
+/* 
+---------------------------------------------------
+
+Temporary reference stuff
+
+--------------------------------------------------- */
+
+
+.light-gray { background: #F3F5F5;}
+.bright-blue { background: #B3E3FF;}
+.med-blue { background: #52A3D4;} /* legend numbers */
+.turquoise { background: #0A5E78;}
+
+.text-primary { color: #444444;} /* input, label */
+.text-light { color: #888888;} /* captions */
+
+
+/* 
+---------------------------------------------------
+
+^ DELETE ABOVE ^
+
+
+
+
+--------------------------------------------------- */
+
+
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -38,109 +69,80 @@ ol, ul {
 *  { margin:0;padding:0;}
 
 
-/* ----------------- TEMPORY REFERENCE STUFF (delete!!!!)
---*/
 
-.light-gray { background: #F3F5F5;}
-.bright-blue { background: #B3E3FF;}
-.med-blue { background: #52A3D4;} /* legend numbers */
-.turquoise { background: #0A5E78;}
-
-.text-primary { color: #444444;} /* input, label */
-.text-light { color: #888888;} /* captions */
-
-.margin-horiz { margin: 40px;}
-.margin-vert { margin: 20px;}
-.container { width: 600px;}
-
-.form-input { height: 33px;}
-
-.open-sans /* bold, semibold, regular */ {}
-.merriweather /* bold */ {}
-
-.sprite {
-    background-size: contain;
-    background-repeat:no-repeat;
-    background: url('../images/sprite2.png');
-    display: block;
-}
-
-.form-invalid {
-    background-position: -140px -82px;
-    width: 19px;
-    height: 19px;
-}
-
-.form-valid {
-    background-position: -169px -82px;
-    width: 19px;
-    height: 19px;
-}
-
-.cc-security {
-    background-position: 0px -81px;
-    width:63px;
-    height:33px;  
-
-}
-
-
-
-/* ----------------- CSS HERE (delete above eventually)
---*/
+/*  GENERAL
+------------------------------- */
 
 body {
+  background: #B3E3FF;
+  color: #444444;
   counter-reset: fieldset;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  background:#B3E3FF;
-  color:#444444;
-  padding: 10px 0;
 }
 
 .container {
-    width: 600px;
-    margin: auto;
     background:white;
     border-radius: 9px;
+    margin: 10px auto;
+    margin: auto;
+    width: 600px;
 }
 
 
 .visiblyhidden {
-    position:absolute;
+    height:1px;
     left:-10000px;
+    overflow:hidden;
+    position:absolute;
     top:auto;
     width:1px;
-    height:1px;
-    overflow:hidden;
 }
 
 
-/* ----------------- HEADER  + TYPOGRAPHY
---*/
+/*  HEADER & TYPE
+------------------------------- */
+
 
 header {
     background: #0A5E78;
     border-radius: 9px 9px 0 0;
     padding: 25px 40px;
+    background: #167792;
+    background: linear-gradient(top,  #167792,  #125f78);
+    background: -ms-linear-gradient(top,  #167792,  #125f78);
+    background: -webkit-gradient(linear, left top, left bottom, from(#167792), to(#125f78));
+    background: -moz-linear-gradient(top,  #167792,  #125f78);
 }
 
 header h1 {
-    font-family: 'Merriweather', serif;
     color:white;
+    font-family: 'Merriweather', serif;
     font-size:36px;
     line-height: 1.4;
 }
 
 header h2 {
+    color: #B3E3FF;
     font-size: 12px;
     font-weight: 700;
-    color: #B3E3FF;
+}
+
+form { text-align: center; }
+form > fieldset { text-align: left; }
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+    color: inherit;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 form > fieldset > legend {
-    font-family: 'Merriweather', serif;
     color: #0A5E78;
+    font-family: 'Merriweather', serif;
     font-size: 18px;
     font-weight: 700;
 }
@@ -152,71 +154,146 @@ label {
 }
 
 label.caption { 
-    font-size: 11px;
     color: #888888;
+    font-size: 11px;
     font-weight: 600;
     line-height: 2;
 }
 
+.form-group .portfolio-address-control .caption {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888888;
+    line-height: 2.4;
+}
+
+form button {
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+}
 
 
-/* ----------------- FORM – General (input, labels)
---*/
+
+/*  FORM (General)
+------------------------------- 
+- Inputs and labels
+- Group containers
+- Submit 
+------------------------------- */
 
 
 input[type='text'],
 input[type='email'],
-input[type='password'] {
-    width: 100%;
-    padding: 0 10px;
-    height: 34px;
+input[type='password'],
+.form-group .portfolio-address-control .caption {
     background: transparent;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1;
     background: white;
     border-radius: 5px;
     border: 0;
     box-shadow: inset 0px 1px 1px 1px rgba(214,214,214,1);
-
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 600;
-    color: inherit;
-}
-
-input:focus {
+    box-shadow: inset 1px 1px 0px 1px rgba(214,214,214,1);
+    box-sizing: border-box;
+    height: 34px;
+    padding: 0 10px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
 }
 
 
 .form-group {
-    margin-top: 10px;
-    padding: 25px 40px;
     background: #F3F5F5;
     border-radius: 8px;
+    margin-top: 10px;
+    padding: 25px 40px;
 }
 
 .form-group li {
+    display: inline-block;
     margin-bottom: 20px;
-    display: block;
     position: relative;
+    width: 100%;
 }
 
-.form-group li label:first-child {
-    height: 20px;
+.form-group li label:first-child,
+li > fieldset > legend {
     display: inline-block;
+    height: 20px;
 }
+
+form button {
+    background: #63B8EE;
+    background: -moz-linear-gradient(top,  #8FA832,  #7D9B32);
+    background: -ms-linear-gradient(top,  #8FA832,  #7D9B32);
+    background: -webkit-gradient(linear, left top, left bottom, from(#8FA832), to(#7D9B32));
+    background: linear-gradient(top,  #8FA832,  #7D9B32);
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0px 1px 1px 1px rgba(214,214,214,0.3);
+    margin: 0 auto 40px;
+    padding: 10px 16px;
+}
+
+form button:hover {
+    cursor: pointer;
+    background: #52A3D4;
+}
+
+
+
+/*  FORM (Fieldsets)
+------------------------------- */
+
+
+form > fieldset { 
+    box-sizing: border-box;
+    margin: 30px 0 40px;
+    padding: 0 40px;
+    position: relative; 
+    width: 100%;
+}
+
+form > fieldset > legend {
+	counter-increment: fieldset;
+}
+
+form > fieldset > legend::before {
+    background: #52A3D4;
+    border-radius: 50%;
+    border: 5px white solid;
+    box-sizing: border-box;
+    color: white;
+    content: counter(fieldset) " ";
+    display: block;
+    height: 40px;
+    left: -15px;
+    padding-top: 6px;
+    position: absolute;
+    text-align: center;
+    top: -11px;
+    width: 40px;
+}
+
+
+
+/*  FORM (Validation)
+------------------------------- */
 
 .icon-form-validation {
-    position: absolute;
-    top: 31px;
-    right: 8px;
-    background-size: contain;
+    background-position: -90px -167px;
     background-repeat:no-repeat;
-    background: url('../images/sprite2.png');
-    background-position: -110px -82px;
-    width: 20px;
+    background-size: contain;
+    background: url('../images/sprite.png');
     height: 20px;
+    position: absolute;
+    right: 8px;
+    top: 31px;
+    width: 20px;
     z-index: -1;
 } 
 
@@ -226,64 +303,105 @@ input:focus:required ~ .icon-form-validation {
 }
 
 input:focus:required:valid ~ .icon-form-validation {
-    background-position: -169px -82px;
+    background-position: -30px -167px;
 }
 
 input:focus:required:invalid ~ .icon-form-validation {
-    background-position: -140px -82px;
+    background-position: -1px -167px;
 }
 
 
 
+/*  FORM (Exceptions)
+------------------------------- 
+- Portfolio address
+- Card number
+- Card type
+- Security code
+------------------------------- */
 
-/* ----------------- FORM – Fieldsets (headers, background)
---*/
 
 
-fieldset { 
-    position: relative; 
-    margin: 30px 0;
-    padding: 0 40px;
-    width: 100%;
-    box-sizing: border-box;
-}
+/* Portfolio address */
 
-form > fieldset > legend {
-	counter-increment: fieldset;
-}
-
-form > fieldset > legend::before {
-    content: counter(fieldset) " ";
-    color: white;
-    position: absolute;
-    left: -15px;
-    top: -11px;
-    height: 40px;
-    width: 40px;
-    background: #52A3D4;
-    border-radius: 50%;
-    text-align: center;
-    padding-top: 6px;
-    box-sizing: border-box;
+.form-group .portfolio-address-control .caption {
+    width: 154px;
+    background: #FAFAFA;
     display: block;
-    border: 5px white solid;
+    position: absolute;
+    top: 24px;
+    left: 100%;
+    z-index: 3;
+
+    border-radius: 0 5px 5px 0;
+    box-shadow: inset 0px 1px 0px 1px rgba(214,214,214,1);
+    z-index: 0;
+}
+
+
+.form-group .portfolio-address-control {
+    width: 286px;
+}
+
+.form-group .portfolio-address-control input {
+    border-radius: 5px 0 0 5px;
 }
 
 
 
 
-/* ----------------- FORM – Card Selector (radio sprite!)
---*/
+/* Card Number */
 
+.form-group .cc-number-control,
+.form-group .cc-type-control {
+    vertical-align: bottom;
+    width: 49%;
+}
+
+
+
+/* Card Security */
+
+.form-group .cc-code-control {
+    width: 23%;
+}
+
+.form-group .cc-code-control .cc-code-sprite {
+    display: block;
+    position: absolute;
+    right: -80%;
+    top: 25px;
+    height: 34px;
+    width: 70px;
+    background-size: contain;
+    background: url('../images/sprite.png');
+    background-repeat:no-repeat;
+    background-position: 0 -124px;
+}
+
+.form-group .cc-code-control .cc-code-sprite.is-amex {
+    background-position: 0 -81px;
+}
+
+
+
+/* Card Selector */
+
+.cc-type-control fieldset {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
 
 .cc-type {
-	cursor:pointer;
-	display: inline-block;
-    background-size:contain;
+    cursor: pointer;
+    display: inline-block;
     background-repeat:no-repeat;
-    background: url('../images/sprite2.png');
-    width:45px;
+    background-size:contain;
+    background: url('../images/sprite.png');
     height:32px;  
+    margin-left: 1px;
+    width:45px;
 }
 
 
@@ -303,13 +421,3 @@ form > fieldset > legend::before {
 
 #mastercard:checked + .cc-type,
 .mastercard:hover { background-position: -144px 0; }
-
-
-
-
-
-
-
-
-
-
