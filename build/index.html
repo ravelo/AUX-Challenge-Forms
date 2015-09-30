@@ -8,9 +8,7 @@
 
 	<link rel="stylesheet" href="assets/css/styles.css">
 
-	<!-- fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400%7CMerriweather:700' rel='stylesheet' type='text/css'>
 
 	<meta charset="UTF-8">
 	<meta http-equiv="cleartype" content="on">
@@ -36,7 +34,7 @@
 				<ul class="form-group">
 					<li>
 						<label for="portfolio-name">Portfolio name</label>
-						<input type="text" id="portfolio-name" name="portfolio-name" aria-required="true" aria-required="true" required>
+						<input type="text" id="portfolio-name" name="portfolio-name" aria-required="true" required>
 
 						<!-- * * * Insert icon with js instead? * * * -->
 						<div class="icon-form-validation"></div>
@@ -44,7 +42,7 @@
 					</li>
 					<li class="portfolio-address-control">
 						<label for="portfolio-address">Portfolio address</label>
-						<input type="text" id="portfolio-address" name="portfolio-address" aria-required="true" aria-required="true" required>
+						<input type="text" id="portfolio-address" name="portfolio-address" aria-required="true" required>
 						<div class="icon-form-validation"></div>
 						<label for="portfolio-address" class="caption"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
 					</li>
@@ -81,8 +79,8 @@
 				<ul class="form-group">
 					<li class="cc-number-control">
 						<label for="cc-number">Card Number</label>
-						<input type="text" id="cc-number" name="card-number" maxlength="16" aria-required="true" required>
-						<div class="icon-form-validation"></div>
+						<input type="text" id="cc-number" pattern="[0-9 -]{7,}" name="card-number" aria-required="true" required>
+						<div class="icon-form-validation only-show-invalid"></div>
 					</li>
 					<li class="cc-type-control">
 						<fieldset>
@@ -113,8 +111,8 @@
 					</li>
 					<li class="cc-code-control">
 						<label for="cc-code">Security Code</label>
-						<input type="text" id="cc-code" name="cc-code" maxlength="4" aria-required="true" required>
-						<div class="icon-form-validation"></div>
+						<input type="text" id="cc-code" name="cc-code" pattern="[0-9]{3,4}" maxlength="4" aria-required="true" required>
+						<div class="icon-form-validation only-show-invalid"></div>
 						<label for="cc-code" class="cc-code-sprite">
 							<span class="visiblyhidden">The security code is usually 3 to 4 digits and typically found on the back of your credit card.</span>
 						</label>
@@ -173,5 +171,17 @@
 	</section><!--/#main-->
 
 </div><!--/.container-->
+
+
+
+<!-- Scripts -->
+<script src="assets/js/vendor/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/vendor/jquery.creditCardValidator.js" type="text/javascript"></script>
+<script src="assets/js/script.js" type="text/javascript"></script>
+
+
+<!-- * * * Conditional load with modernizer? * * * -->
+<script src="assets/js/vendor/parsley.min.js" type="text/javascript"></script>
+
 </body>
 </html>
