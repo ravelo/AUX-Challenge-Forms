@@ -86,7 +86,6 @@ body {
     width: 600px;
 }
 
-
 .visiblyhidden {
     height:1px;
     left:-10000px;
@@ -157,7 +156,7 @@ label.caption {
     line-height: 2;
 }
 
-.form-group .portfolio-address-control .caption {
+.portfolio-address-control .caption {
     text-align: center;
     font-size: 14px;
     font-weight: 600;
@@ -187,7 +186,7 @@ form button {
 input[type='text'],
 input[type='email'],
 input[type='password'],
-.form-group .portfolio-address-control .caption {
+.portfolio-address-control .caption {
     background: transparent;
     background: white;
     border-radius: 5px;
@@ -329,7 +328,7 @@ input:focus:required:valid ~ .icon-form-validation.only-show-invalid.force-show-
 
 /* Portfolio address */
 
-.form-group .portfolio-address-control .caption {
+.portfolio-address-control .caption {
     width: 154px;
     background: #FAFAFA;
     display: block;
@@ -348,7 +347,7 @@ input:focus:required:valid ~ .icon-form-validation.only-show-invalid.force-show-
     width: 286px;
 }
 
-.form-group .portfolio-address-control input {
+.portfolio-address-control input {
     border-radius: 5px 0 0 5px;
 }
 
@@ -371,7 +370,7 @@ input:focus:required:valid ~ .icon-form-validation.only-show-invalid.force-show-
     width: 23%;
 }
 
-.form-group .cc-code-control .cc-code-sprite {
+.cc-code-control .cc-code-sprite {
     display: block;
     position: absolute;
     right: -80%;
