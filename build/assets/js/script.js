@@ -12,16 +12,16 @@ $(function () {
 		}
 	}
 
-	// Credit card – Adds class to show clearer validation for js users
+	// Add class to show clearer credit card validation for js users
 	cardNumberValidate.addClass('force-show-invalid');
 
-	// Look to see if Amex is manually checked
+	// Detect when Amex is manually checked
 	cardTypeButtons_all.change(changeIfAmex);
 
-	// CARD VALIDATION (using plugin)
+	// Validate credit card number (using plugin)
 	$('#cc-number').validateCreditCard(function(result) {
 
-		// Check card type – No card type detected
+		// Check card type
 		if (result.card_type === null) {
 			cardTypeButtons_all.prop('checked', false);
 		} else {
@@ -30,7 +30,7 @@ $(function () {
 			changeIfAmex();
 		}
 
-		// Validate – Indicate if card number is valid
+		// Show when card number is valid
 		if (result.valid === true ) {
 			cardNumberValidate.removeClass('only-show-invalid');
 		} else {
