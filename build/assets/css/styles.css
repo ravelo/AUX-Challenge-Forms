@@ -1,95 +1,43 @@
-/* 
----------------------------------------------------
-
-Temporary reference stuff
-
---------------------------------------------------- */
-
-
-.light-gray { background: #F3F5F5;}
-.bright-blue { background: #B3E3FF;}
-.med-blue { background: #52A3D4;} /* legend numbers */
-.turquoise { background: #0A5E78;}
-
-.text-primary { color: #444444;} /* input, label */
-.text-light { color: #888888;} /* captions */
-
-
-/* 
----------------------------------------------------
-
-^ DELETE ABOVE ^
-
-
-
-
---------------------------------------------------- */
-
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, img,
+h1, h2, h3, h4, h5, h6, p, span,
+form, fieldset, legend, label, input {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
 }
 
-*  { margin:0;padding:0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+ol, ul { list-style: none; }
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
 
 
 /*  GENERAL
 ------------------------------- */
 
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 body {
-  background: #B3E3FF;
-  color: #444444;
-  counter-reset: fieldset;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+    background: #B3E3FF;
+    color: #444444;
+    counter-reset: fieldset;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1;
 }
 
 .container {
     background:white;
     border-radius: 9px;
     margin: 10px auto;
-    margin: auto;
     width: 600px;
 }
 
@@ -108,7 +56,6 @@ body {
 
 
 header {
-    background: #0A5E78;
     border-radius: 9px 9px 0 0;
     padding: 25px 40px;
     background: #167792;
@@ -119,9 +66,9 @@ header {
 }
 
 header h1 {
-    color:white;
+    color: white;
     font-family: 'Merriweather', serif;
-    font-size:36px;
+    font-size: 36px;
     line-height: 1.4;
 }
 
@@ -194,17 +141,31 @@ input[type='text'],
 input[type='email'],
 input[type='password'],
 .portfolio-address-control .caption {
-    background: transparent;
-    background: white;
+    background-color: white;
     border-radius: 5px;
     border: 0;
-    box-shadow: inset 0px 1px 1px 1px rgba(214,214,214,1);
     box-shadow: inset 1px 1px 0px 1px rgba(214,214,214,1);
     height: 34px;
-    padding: 0 10px;
-    position: relative;
+    padding: 0 35px 0 10px;
     width: 100%;
     z-index: 1;
+}
+
+
+input,
+input.only-show-invalid:focus:required:valid {
+    background-repeat:no-repeat;
+    background-image: url('../images/sprite.png');
+    background-position: right -185px;  
+}
+
+input:focus:required:valid {
+    background-position: right -114px;  
+}
+
+input:focus:required:invalid,
+input.only-show-invalid.force-show-invalid:focus:required:valid {
+    background-position: right -142px;  
 }
 
 
@@ -243,7 +204,11 @@ form button {
 
 form button:hover {
     cursor: pointer;
-    background: #52A3D4;
+    background-color: #52A3D4;
+    background: linear-gradient(top,  #167792,  #125f78);
+    background: -ms-linear-gradient(top,  #167792,  #125f78);
+    background: -webkit-gradient(linear, left top, left bottom, from(#167792), to(#125f78));
+    background: -moz-linear-gradient(top,  #167792,  #125f78);
 }
 
 
@@ -256,7 +221,6 @@ form > fieldset {
     margin: 30px 0 40px;
     padding: 0 40px;
     position: relative; 
-    width: 100%;
 }
 
 form > fieldset > legend {
@@ -279,44 +243,6 @@ form > fieldset > legend::before {
     width: 40px;
 }
 
-
-
-/*  FORM (Validation)
-------------------------------- */
-
-.icon-form-validation {
-    background-repeat:no-repeat;
-    background-size: contain;
-    background: url('../images/sprite.png');
-    background-position: -90px -167px;    
-    height: 20px;
-    position: absolute;
-    right: 8px;
-    top: 31px;
-    width: 20px;
-    z-index: -1;
-} 
-
-
-input:focus:required ~ .icon-form-validation {
-    z-index: 2;
-}
-
-input:focus:required:valid ~ .icon-form-validation {
-    background-position: -30px -167px;
-}
-
-input:focus:required:invalid ~ .icon-form-validation {
-    background-position: -1px -167px;
-}
-
-input:focus:required:valid ~ .icon-form-validation.only-show-invalid {
-    background-position: -90px -167px; 
-}
-
-input:focus:required:valid ~ .icon-form-validation.only-show-invalid.force-show-invalid {
-    background-position: -1px -167px;
-}
 
 
 
@@ -381,10 +307,10 @@ input:focus:required:valid ~ .icon-form-validation.only-show-invalid.force-show-
     top: 25px;
     height: 34px;
     width: 70px;
-    background-size: contain;
     background: url('../images/sprite.png');
     background-repeat:no-repeat;
     background-position: 0 -124px;
+    background-position: -95px -82px;
 }
 
 .form-group .cc-code-control .cc-code-sprite.is-amex {

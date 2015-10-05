@@ -1,6 +1,6 @@
 $(function () {
 
-	var cardNumberValidate = $('.cc-number-control .icon-form-validation'),
+	var cardNumberValidate = $('.cc-number-control input'),
 		cardTypeButtons_all = $('.cc-type-control input[type=radio]'),
 		cardCodeImg = $('.cc-code-sprite');
 
@@ -37,6 +37,6 @@ $(function () {
 			cardNumberValidate.addClass('only-show-invalid');
 		}
 
-	}, { accept: ['visa', 'amex', 'mastercard', 'discover'] });
+	}, {accept: ['visa', 'amex', 'mastercard', 'discover']});
 
 }); // END doc ready

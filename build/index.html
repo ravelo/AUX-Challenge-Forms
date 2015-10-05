@@ -35,15 +35,10 @@
 					<li>
 						<label for="portfolio-name">Portfolio name</label>
 						<input type="text" id="portfolio-name" name="portfolio-name" aria-required="true" required>
-
-						<!-- * * * Insert icon with js instead? * * * -->
-						<div class="icon-form-validation"></div>
-						
 					</li>
 					<li class="portfolio-address-control">
 						<label for="portfolio-address">Portfolio address</label>
 						<input type="text" id="portfolio-address" name="portfolio-address" aria-required="true" required>
-						<div class="icon-form-validation"></div>
 						<label for="portfolio-address" class="caption"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
 					</li>
 				</ul> 
@@ -57,18 +52,15 @@
 					<li>
 						<label for="acct-name">Name</label>
 						<input type="text" id="acct-name" name="name" aria-required="true" required>
-						<div class="icon-form-validation"></div>
 					</li>
 					<li>
 						<label for="acct-email">Email</label>
 						<input type="email" id="acct-email" name="email" aria-required="true" required>
-						<div class="icon-form-validation"></div>
 						<label class="caption" for="acct-email">NOTE: We'll never share your email, promise.</label>
 					</li>
 					<li>
 						<label for="acct-pw">Password</label>
 						<input type="password" id="acct-pw" name="pw" aria-required="true" required>
-						<div class="icon-form-validation"></div>
 					</li>
 				</ul>
 			</fieldset>
@@ -79,8 +71,7 @@
 				<ul class="form-group">
 					<li class="cc-number-control">
 						<label for="cc-number">Card Number</label>
-						<input type="text" id="cc-number" pattern="[0-9 -]{7,}" name="card-number" aria-required="true" required>
-						<div class="icon-form-validation only-show-invalid"></div>
+						<input type="text" id="cc-number" pattern="[0-9 -]{7,}" class="only-show-invalid" name="card-number" aria-required="true" required>
 					</li>
 					<li class="cc-type-control">
 						<fieldset>
@@ -111,8 +102,7 @@
 					</li>
 					<li class="cc-code-control">
 						<label for="cc-code">Security Code</label>
-						<input type="text" id="cc-code" name="cc-code" pattern="[0-9]{3,4}" maxlength="4" aria-required="true" required>
-						<div class="icon-form-validation only-show-invalid"></div>
+						<input type="text" id="cc-code" class="only-show-invalid" name="cc-code" pattern="[0-9]{3,4}" maxlength="4" aria-required="true" required>
 						<label for="cc-code" class="cc-code-sprite">
 							<span class="visiblyhidden">The security code is usually 3 to 4 digits and typically found on the back of your credit card.</span>
 						</label>
