@@ -97,7 +97,7 @@ form > fieldset > legend {
     font-weight: 700;
 }
 
-li > fieldset > legend, 
+.form-group fieldset > legend, 
 label {
     font-size: 12px;
     font-weight: 400;
@@ -132,6 +132,7 @@ form button {
 /*  FORM (General)
 ------------------------------- 
 - Inputs and labels
+- Form validation
 - Group containers
 - Submit 
 ------------------------------- */
@@ -148,7 +149,6 @@ input[type='password'],
     height: 34px;
     padding: 0 35px 0 10px;
     width: 100%;
-    z-index: 1;
 }
 
 
@@ -183,11 +183,12 @@ input.only-show-invalid.force-show-invalid:focus:required:valid {
     width: 100%;
 }
 
-.form-group li label:first-child,
-li > fieldset > legend {
+label,
+.form-group fieldset > legend {
+    margin-bottom: 6px;
     display: inline-block;
-    height: 20px;
 }
+
 
 form button {
     background: #63B8EE;
@@ -262,14 +263,13 @@ form > fieldset > legend::before {
     width: 154px;
     background: #FAFAFA;
     display: block;
-    position: absolute;
-    top: 24px;
-    left: 100%;
-    z-index: 3;
+    position: relative;
+    margin-top: -34px;
+    margin-left: 100%;
+    padding-right: 10px;
 
     border-radius: 0 5px 5px 0;
     box-shadow: inset 0px 1px 0px 1px rgba(214,214,214,1);
-    z-index: 0;
 }
 
 
@@ -302,9 +302,8 @@ form > fieldset > legend::before {
 
 .cc-code-control .cc-code-sprite {
     display: block;
-    position: absolute;
-    right: -80%;
-    top: 25px;
+    margin-top: -33px;
+    margin-left: 110px;
     height: 34px;
     width: 70px;
     background: url('../images/sprite.png');
@@ -322,8 +321,6 @@ form > fieldset > legend::before {
 /* Card Selector */
 
 .cc-type-control fieldset {
-    margin: 0;
-    padding: 0;
     text-align: right;
 }
 
@@ -331,8 +328,9 @@ form > fieldset > legend::before {
     cursor: pointer;
     display: inline-block;
     background-repeat:no-repeat;
-    background-size:contain;
     background: url('../images/sprite.png');
+    margin-top: 10px;
+    margin-bottom: 0;
     height:32px;  
     margin-left: 1px;
     width:45px;
@@ -344,14 +342,18 @@ form > fieldset > legend::before {
 .discover { background-position: -96px -42px; }
 .mastercard { background-position: -144px -42px; }
 
+#amex:focus + .cc-type,
 #amex:checked + .cc-type,
 .amex:hover { background-position: 0 0; }
 
+#visa:focus + .cc-type,
 #visa:checked + .cc-type,
 .visa:hover { background-position: -48px 0; }
 
+#discover:focus + .cc-type,
 #discover:checked + .cc-type,
 .discover:hover { background-position: -96px 0; }
 
+#mastercard:focus + .cc-type,
 #mastercard:checked + .cc-type,
 .mastercard:hover { background-position: -144px 0; }
