@@ -1,26 +1,9 @@
-html, body, div, img,
-h1, h2, h3, h4, h5, h6, p, span,
-form, fieldset, legend, label, input {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-    display: block;
-}
+html, body, div, img, h1, h2, h3, h4, h5, h6, p, span, form, fieldset, legend, label, input { margin: 0; padding: 0; border: 0; }
 
 ol, ul { list-style: none; }
 
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
 
 /*  GENERAL
 ------------------------------- */
@@ -42,18 +25,18 @@ body {
 }
 
 .visiblyhidden {
-    height:1px;
-    left:-10000px;
-    overflow:hidden;
-    position:absolute;
-    top:auto;
-    width:1px;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
 }
-
 
 /*  HEADER & TYPE
 ------------------------------- */
-
 
 header {
     border-radius: 9px 9px 0 0;
@@ -81,33 +64,38 @@ header h2 {
 form { text-align: center; }
 form > fieldset { text-align: left; }
 
-input[type='text'],
-input[type='email'],
-input[type='password'] {
+input:not([type='radio']) {
     color: inherit;
     font-family: inherit;
     font-size: 16px;
     font-weight: 600;
 }
 
-form > fieldset > legend {
+.form-group-header {
     color: #0A5E78;
     font-family: 'Merriweather', serif;
     font-size: 18px;
     font-weight: 700;
 }
 
-.form-group fieldset > legend, 
-label {
+label,
+.form-group legend {
     font-size: 12px;
     font-weight: 400;
 }
 
-label.caption { 
+.caption { 
     color: #888888;
     font-size: 11px;
     font-weight: 600;
     line-height: 2;
+    margin-bottom: 0;
+}
+
+select {
+    font-size: 11px;
+    color: inherit;
+    font-family: inherit;
 }
 
 .portfolio-address-control .caption {
@@ -127,8 +115,6 @@ form button {
     text-align: center;
 }
 
-
-
 /*  FORM (General)
 ------------------------------- 
 - Inputs and labels
@@ -137,10 +123,7 @@ form button {
 - Submit 
 ------------------------------- */
 
-
-input[type='text'],
-input[type='email'],
-input[type='password'],
+input:not([type='radio']),
 .portfolio-address-control .caption {
     background-color: white;
     border-radius: 5px;
@@ -151,9 +134,8 @@ input[type='password'],
     width: 100%;
 }
 
-
 input,
-input.only-show-invalid:focus:required:valid {
+.only-show-invalid:focus:required:valid {
     background-repeat:no-repeat;
     background-image: url('../images/sprite.png');
     background-position: right -185px;  
@@ -164,31 +146,39 @@ input:focus:required:valid {
 }
 
 input:focus:required:invalid,
-input.only-show-invalid.force-show-invalid:focus:required:valid {
+.only-show-invalid.force-show-invalid:focus:required:valid {
     background-position: right -142px;  
 }
-
 
 .form-group {
     background: #F3F5F5;
     border-radius: 8px;
     margin-top: 10px;
-    padding: 25px 40px;
+    padding: 35px 40px 20px;
 }
 
 .form-group li {
     display: inline-block;
     margin-bottom: 20px;
-    position: relative;
     width: 100%;
+    position: relative;
 }
 
 label,
-.form-group fieldset > legend {
+.form-group legend {
     margin-bottom: 6px;
-    display: inline-block;
+    display: block;
 }
 
+select {
+    border: 1px solid #D6D6D6;
+    display: inline-block;
+    height: 23px;
+    background: linear-gradient(top,  #fff,  #F2F2F2);
+    background: -ms-linear-gradient(top,  #fff,  #F2F2F2);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#F2F2F2));
+    background: -moz-linear-gradient(top,  #fff,  #F2F2F2);
+}
 
 form button {
     background: #63B8EE;
@@ -212,11 +202,8 @@ form button:hover {
     background: -moz-linear-gradient(top,  #167792,  #125f78);
 }
 
-
-
 /*  FORM (Fieldsets)
 ------------------------------- */
-
 
 form > fieldset { 
     margin: 30px 0 40px;
@@ -224,28 +211,25 @@ form > fieldset {
     position: relative; 
 }
 
-form > fieldset > legend {
+.form-group-header {
 	counter-increment: fieldset;
 }
 
-form > fieldset > legend::before {
-    background: #52A3D4;
-    border-radius: 50%;
-    border: 5px white solid;
-    color: white;
+.form-group-header::before {
     content: counter(fieldset) " ";
     display: block;
     height: 40px;
-    left: -15px;
-    padding-top: 6px;
-    position: absolute;
-    text-align: center;
-    top: -11px;
     width: 40px;
+    text-align: center;
+    color: white;    
+    background: #52A3D4;
+    border-radius: 50%;
+    border: 5px white solid;
+    padding-top: 6px;    
+    position: absolute;
+    left: -15px;
+    top: -11px;
 }
-
-
-
 
 /*  FORM (Exceptions)
 ------------------------------- 
@@ -255,23 +239,17 @@ form > fieldset > legend::before {
 - Security code
 ------------------------------- */
 
-
-
 /* Portfolio address */
 
 .portfolio-address-control .caption {
     width: 154px;
     background: #FAFAFA;
-    display: block;
-    position: relative;
     margin-top: -34px;
     margin-left: 100%;
     padding-right: 10px;
-
     border-radius: 0 5px 5px 0;
     box-shadow: inset 0px 1px 0px 1px rgba(214,214,214,1);
 }
-
 
 .form-group .portfolio-address-control {
     width: 286px;
@@ -281,9 +259,6 @@ form > fieldset > legend::before {
     border-radius: 5px 0 0 5px;
 }
 
-
-
-
 /* Card Number */
 
 .form-group .cc-number-control,
@@ -292,8 +267,6 @@ form > fieldset > legend::before {
     width: 49%;
 }
 
-
-
 /* Card Security */
 
 .form-group .cc-code-control {
@@ -301,59 +274,71 @@ form > fieldset > legend::before {
 }
 
 .cc-code-control .cc-code-sprite {
-    display: block;
     margin-top: -33px;
     margin-left: 110px;
     height: 34px;
     width: 70px;
     background: url('../images/sprite.png');
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-position: 0 -124px;
     background-position: -95px -82px;
 }
 
-.form-group .cc-code-control .cc-code-sprite.is-amex {
+.cc-code-control .cc-code-sprite.is-amex {
     background-position: 0 -81px;
 }
 
-
-
 /* Card Selector */
 
-.cc-type-control fieldset {
+.cc-type-control {
     text-align: right;
 }
 
 .cc-type {
     cursor: pointer;
     display: inline-block;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background: url('../images/sprite.png');
-    margin-top: 10px;
-    margin-bottom: 0;
-    height:32px;  
-    margin-left: 1px;
-    width:45px;
+    margin: 10px 0 0 1px;
+    height: 32px;  
+    width: 45px;
 }
-
 
 .amex { background-position: 0 -42px; }
 .visa { background-position: -48px -42px; }
 .discover { background-position: -96px -42px; }
 .mastercard { background-position: -144px -42px; }
 
-#amex:focus + .cc-type,
-#amex:checked + .cc-type,
+#amex:focus + .cc-type, #amex:checked + .cc-type,
 .amex:hover { background-position: 0 0; }
 
-#visa:focus + .cc-type,
-#visa:checked + .cc-type,
+#visa:focus + .cc-type, #visa:checked + .cc-type,
 .visa:hover { background-position: -48px 0; }
 
-#discover:focus + .cc-type,
-#discover:checked + .cc-type,
+#discover:focus + .cc-type, #discover:checked + .cc-type,
 .discover:hover { background-position: -96px 0; }
 
-#mastercard:focus + .cc-type,
-#mastercard:checked + .cc-type,
+#mastercard:focus + .cc-type, #mastercard:checked + .cc-type,
 .mastercard:hover { background-position: -144px 0; }
+
+/* Fallback validation */
+
+.invalid-control, .is-valid,
+.invalid-control + .cc-type-control,
+.is-valid + .cc-type-control {
+    padding-bottom: 18px;
+}
+
+.invalid-control input:not([type='radio']) {
+    background-color: #EAD0F7;
+}
+
+.invalid {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    font-weight: 700;
+    color: #411389;
+    width: 440px;
+}

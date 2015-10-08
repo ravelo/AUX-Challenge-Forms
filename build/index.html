@@ -2,35 +2,24 @@
 <html lang="en" class="no-js">
 <head>
 	<title>Whoo! Sign Up</title>
-
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-
-	<link rel="stylesheet" href="assets/css/styles.css">
-
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400%7CMerriweather:700' rel='stylesheet' type='text/css'>
-
+	<link rel="stylesheet" href="assets/css/styles.css">
 	<meta charset="UTF-8">
 	<meta http-equiv="cleartype" content="on">
-
 </head>
 <body>
 <div class="container">
-
 	<header id="banner" class="banner">
 		<h1>Sign up for Whoo!</h1>
 		<h2>50 projects, 500 images, 10 videos, domain binding, and technical support</h2>
 	</header>
-
 	<section id="main" role="main">
-
 		<h1 class="visiblyhidden">Whoo! Sign Up Form</h1>
-
 		<form id="form-signup">
-
 			<fieldset>
-				<legend>First, name your portfolio</legend>
-
+				<legend class="form-group-header">First, name your portfolio</legend>
 				<ul class="form-group">
 					<li>
 						<label for="portfolio-name">Portfolio name</label>
@@ -42,12 +31,9 @@
 						<label for="portfolio-address" class="caption"><span class="visiblyhidden">your-portfolio</span>.sample.com</label>
 					</li>
 				</ul> 
-
 			</fieldset>
-
 			<fieldset>
-				<legend>Now, enter your account details</legend>
-				
+				<legend class="form-group-header">Now, enter your account details</legend>
 				<ul class="form-group">
 					<li>
 						<label for="acct-name">Name</label>
@@ -64,34 +50,28 @@
 					</li>
 				</ul>
 			</fieldset>
-
 			<fieldset>
-				<legend>Finally, enter your payment information</legend>
-				
+				<legend class="form-group-header">Finally, enter your payment information</legend>
 				<ul class="form-group">
 					<li class="cc-number-control">
 						<label for="cc-number">Card Number</label>
-						<input type="text" id="cc-number" pattern="[0-9 -]{7,}" class="only-show-invalid" name="card-number" aria-required="true" required>
+						<input type="text" id="cc-number" pattern="[0-9 -]{7,}" class="only-show-invalid" name="cc-number" aria-required="true" required>
 					</li>
 					<li class="cc-type-control">
 						<fieldset>
 							<legend class="visiblyhidden">Card Type</legend>
-							
 							<input id="amex" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="amex" class="cc-type amex">
 								<span class="visiblyhidden">AmEx</span>
 							</label>
-
 							<input id="visa" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="visa" class="cc-type visa">
 								<span class="visiblyhidden">VISA</span>
 							</label>
-
 							<input id="discover" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="discover" class="cc-type discover">
 								<span class="visiblyhidden">Discover</span>
 							</label>
-
 							<input id="mastercard" name="cardtype" type="radio" class="visiblyhidden" aria-required="true" required>
 							<label for="mastercard" class="cc-type mastercard">
 								<span class="visiblyhidden">Mastercard</span>
@@ -108,7 +88,6 @@
 					<li class="cc-exp-control">
 						<fieldset>
 							<legend>Expiration date</legend>
-
 							<label for="cc-exp-month" class="visiblyhidden">Expiration month</label>
 							<select id="cc-exp-month" name="exp-month" aria-required="true" required>
 								<option value="" disabled selected>Month</option>
@@ -125,7 +104,6 @@
 								<option value="11">November</option>
 								<option value="12">December</option>
 			                </select>
-
 			                <label for="cc-exp-year" class="visiblyhidden">Expiration year</label>
 							<select id="cc-exp-year" name="exp-year" aria-required="true" required>
 								<option value="" disabled selected>Year</option>
@@ -133,44 +111,19 @@
 								<option value="2016">2016</option>
 								<option value="2017">2017</option>
 								<option value="2018">2018</option>
-								<option value="2019">2019</option>
-								<option value="2020">2020</option>
-								<option value="2021">2021</option>
-								<option value="2022">2022</option>
-								<option value="2023">2023</option>
-								<option value="2024">2024</option>
-								<option value="2025">2025</option>
-								<option value="2026">2026</option>
-								<option value="2027">2027</option>
-								<option value="2028">2028</option>
-								<option value="2029">2029</option>
-								<option value="2030">2030</option>
 							</select>
 						</fieldset>
 					</li>
 				</ul>
-
 			</fieldset>
-
 			<button>Create your portfolio</button>
-
 		</form><!--/#form-signup-->
-
 	</section><!--/#main-->
-
 </div><!--/.container-->
-
-
-
 <!-- Scripts -->
 <script src="assets/js/vendor/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/vendor/jquery.creditCardValidator.js" type="text/javascript"></script>
+<script src="assets/js/vendor/modernizr.min.js" type="text/javascript"></script>
 <script src="assets/js/script.js" type="text/javascript"></script>
-
-
-<!-- * * * Conditional load with modernizer? * * * 
-<script src="assets/js/vendor/parsley.min.js" type="text/javascript"></script>
--->
-
 </body>
 </html>
