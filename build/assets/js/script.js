@@ -1,7 +1,7 @@
 $(function () {
 
-	var cardNumberValidate = $('.cc-number-control input'),
-		cardTypeButtons_all = $('.cc-type-control input[type=radio]'),
+	var cardNumberInput = $('.cc-number-control input'),
+		cardTypeButtons = $('.cc-type-control input[type=radio]'),
 		cardCodeImg = $('.cc-code-sprite');
 
 	function changeIfAmex() {
@@ -15,9 +15,9 @@ $(function () {
 	function validateWithJS() {
 	    $('#form-signup').validate({
 	    	debug: true,
-			errorClass:'invalid',
-			validClass:'is-valid',
-			errorElement:'label',
+			errorClass: 'invalid',
+			validClass: 'is-valid',
+			errorElement: 'label',
 			ignore: '.cc-type-control input',
 			highlight: function(element, errorClass, validClass) {
 				$(element).parents('li').addClass(errorClass + '-control').removeClass(validClass);
@@ -44,28 +44,27 @@ $(function () {
 	}
 
 	// Add class to show clearer credit card validation for js users
-	cardNumberValidate.addClass('force-show-invalid');
+	cardNumberInput.addClass('force-show-invalid');
 
 	// Detect when Amex is manually checked
-	cardTypeButtons_all.change(changeIfAmex);
+	cardTypeButtons.change(changeIfAmex);
 
 	// Validate credit card number (using plugin)
-	$('#cc-number').validateCreditCard(function(result) {
+	cardNumberInput.validateCreditCard(function(result) {
 
 		// Check card type
 		if (result.card_type === null) {
-			cardTypeButtons_all.prop('checked', false);
+			cardTypeButtons.prop('checked', false);
 		} else {
-			var cardTypeButton = $('#' + result.card_type.name);
-			cardTypeButton.prop('checked', true);
+			$('#' + result.card_type.name).prop('checked', true);
 			changeIfAmex();
 		}
 
 		// Show when card number is valid
 		if (result.valid === true ) {
-			cardNumberValidate.removeClass('only-show-invalid');
+			cardNumberInput.removeClass('only-show-invalid');
 		} else {
-			cardNumberValidate.addClass('only-show-invalid');
+			cardNumberInput.addClass('only-show-invalid');
 		}
 
 	}, {accept: ['visa', 'amex', 'mastercard', 'discover']});
@@ -78,8 +77,7 @@ $(function () {
 		},
 		callback: {
 			'validateFallback': function (url, result, key) {
-				console.log('Validate fallback');
-				validateWithJS();
+				validateWithJS()
 			},
 		}
 	});
